@@ -1,0 +1,31 @@
+services: # Each service is a container in the project
+  postgres: # Name of the service, used for database container
+    image: postgres:15-alpine #What version of the service should be used in the container
+    container_name: postgres-db # Sets a fixed name for the container so that it doesn't need to be generated every time the project is ran
+    environment: # credentials to be used in container, the values will be gotten from env file when the project is ran
+      POSTGRES_USER: ${DB_USER} 
+      POSTGRES_PASSWORD: ${DB_PW}
+      POSTGRES_DB: ${DB_NAME}
+    volumes: # where data is stored, name of volume:path to volume
+      - postgres-data:/var/lib/postgresql/data
+    ports: # port the service will run on. host:container
+      - "5432:5432"
+    restart: unless-stopped # if the container crashes, restarts automatically
+  backend: # Name of backend service
+    build: ./backend # path to the backend folder
+    container_name: c#_backend
+    environment:
+      # 
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=${DB_NAME};Username=${DB_USER};Password=${DB_PW} 
+    depends_on: # The services the backend container depends on
+      - postgres
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes: # volume name
+  postgres-data: # db volume
+
