@@ -8,7 +8,7 @@ COPY *.csproj .
 RUN dotnet restore
 
 # Copy source and publish
-COPY . .
+COPY dlClass.API/. .
 RUN dotnet publish -c Release -o /app/publish
 
 # Runtime stage - smaller image without compilers
@@ -19,4 +19,4 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 EXPOSE 8080
-ENTRYPOINT ["dotnet", "DL Classroom.dll"]
+ENTRYPOINT ["dotnet", "dlClass.API.dll"]
