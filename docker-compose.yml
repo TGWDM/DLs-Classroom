@@ -10,6 +10,11 @@ services: # Each service is a container in the project
       - postgres-data:/var/lib/postgresql/data
     ports: # port the service will run on. host:container
       - "5432:5432"
+    healthcheck: # checks if the service is healthy
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"] # checks if the database is ready to accept connections
+      interval: 10s # how often to check
+      timeout: 5s # how long to wait for a response
+      retries: 5 # how many times to retry before marking the service as unhealthy
     restart: unless-stopped # if the container crashes, restarts automatically
   backend: # Name of backend service
     build: ./backend # path to the backend folder
