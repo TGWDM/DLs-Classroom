@@ -1,22 +1,19 @@
-# SDK is need to compile the project
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-# working directory for the backend of the project
-WORKDIR /src 
+# backend/Dockerfile
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+WORKDIR /src
 
-# Copy the project file and restore dependencies
-COPY dlClass.API/*.csproj ./dlClass.API/
+# Copy everything from the build context
+COPY . .
+
+# Go into the project folder
 WORKDIR /src/dlClass.API
-RUN dotnet restore
 
-# Copy source and publish
-COPY dlClass.API/. .
+# Restore and build
+RUN dotnet restore
 RUN dotnet publish -c Release -o /app/publish
 
-# Runtime stage - smaller image without compilers
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 WORKDIR /app
-
-# Copy compiled output from build stage
 COPY --from=build /app/publish .
 
 EXPOSE 8080
