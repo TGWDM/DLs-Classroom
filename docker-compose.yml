@@ -13,16 +13,18 @@ services: # Each service is a container in the project
     restart: unless-stopped # if the container crashes, restarts automatically
   backend: # Name of backend service
     build: ./backend # path to the backend folder
-    container_name: c#_backend
+    container_name: csharp_backend
     environment:
       # 
       - ConnectionStrings__DefaultConnection=Host=postgres;Database=${DB_NAME};Username=${DB_USER};Password=${DB_PW} 
     depends_on: # The services the backend container depends on
-      - postgres
+      postgres:
+        condition: service_healthy # Waits for the postgres service to be healthy before starting the backend container
+    restart: unless-stopped
   frontend:
     build: ./frontend
     ports:
-      - "3000:80"
+      - "5000:8080"
     depends_on:
       - backend
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dlClass.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c56dc7accd757acfe19f45a309b35e16ff0d4198")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5a5b7252be73704dbc806d6801bad25e834f737")]
 [assembly: System.Reflection.AssemblyProductAttribute("dlClass.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dlClass.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
