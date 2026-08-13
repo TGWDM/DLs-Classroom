@@ -29,7 +29,7 @@ services: # Each service is a container in the project
   frontend:
     build: ./frontend
     ports:
-      - "5000:8080"
+      - "3000:80"
     depends_on:
       - backend
 
