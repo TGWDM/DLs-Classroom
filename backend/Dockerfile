@@ -1,6 +1,6 @@
 # SDK is need to compile the project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-# working directory for the backend of the project
+# working directory for the backend of the project if not created will create it.
 WORKDIR /src 
 
 # Copy the project file and restore dependencies
