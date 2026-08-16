@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dlClass.API.Data;
 
-public class appdbContext : DbContext
+public class AppDbContext : DbContext
 {
-    public appdbContext(DbContextOptions<appdbContext> options)
+    public AppDbContext(DbContextOptions<AppDbContext> options)
     : base(options)
     {
         
