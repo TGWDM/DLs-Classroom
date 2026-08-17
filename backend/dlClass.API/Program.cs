@@ -14,6 +14,12 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
+if (app.Environment.IsDevelopment()) // allows swagger only in  dev environment
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+app.MapControllers(); // Maps controller routes
+
+
 app.Run();
