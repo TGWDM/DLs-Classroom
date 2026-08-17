@@ -5,9 +5,9 @@
 ## Backend
 
 - [x] Create MVC for Students
-- [ ] Setup CRUD API for students
+- [x] Setup CRUD API for students
   - [ ] Maybe swap to RestApi
-- [ ] Test Apis
+- [x] Test Apis
 
 ## Frontend
 
