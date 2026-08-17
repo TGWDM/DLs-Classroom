@@ -1,23 +1,28 @@
 using dlClass.API.Data;      
 using dlClass.API.Models;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;  
 using Microsoft.EntityFrameworkCore;
-
 namespace dlClass.API.Controllers;
 [ApiController]
-[Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
-public class StudentController : ControllerBase{
+[Route("api/[controller]")]
+public class StudentsController : ControllerBase{
     private readonly AppDbContext _context;
-    public StudentController(AppDbContext context)
+    public StudentsController(AppDbContext context)
     {
         _context = context;
     }
      // Endpoint for getting all of the student in the student table as a list.
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]   // When students exist
+    [ProducesResponseType(StatusCodes.Status204NoContent)] // When empty
     public async Task<ActionResult<IEnumerable<Student>>> GetStudents()
     {
-        return await _context.Students.ToListAsync();
+        var students = await _context.Students.ToListAsync();
+        if (!students.Any()) // checks if the list is empty
+        {
+            return NoContent();
+        }
+        return Ok(students);
     }
 
     // Get a single student

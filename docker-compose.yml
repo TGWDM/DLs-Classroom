@@ -22,6 +22,8 @@ services: # Each service is a container in the project
     environment:
       # 
       - ConnectionStrings__DefaultConnection=Host=postgres;Database=${DB_NAME};Username=${DB_USER};Password=${DB_PW} 
+    ports:
+      - "5000:5212"
     depends_on: # The services the backend container depends on
       postgres:
         condition: service_healthy # Waits for the postgres service to be healthy before starting the backend container
