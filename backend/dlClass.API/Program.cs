@@ -12,6 +12,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Adds Cors to allow  frontend to access backend 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment()) // allows swagger only in  dev environment
@@ -19,6 +30,8 @@ if (app.Environment.IsDevelopment()) // allows swagger only in  dev environment
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors();
 app.MapControllers(); // Maps controller routes
 
 
