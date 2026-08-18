@@ -11,4 +11,10 @@ Frontend:
 - Typescript
 - Photino + Vite
 
+## Development
+
+### Frontend
+
+To have frontend hot reload run npm run dev from the frontend directory. Additionally, make sure to run npm install before making changes to App.tsx.
+
 ## Features
