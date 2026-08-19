@@ -10,8 +10,9 @@
 - [x] Test Apis
 
 ## Frontend
-
-- [ ] Connect Apis from backend
+- [x] Connect Apis from backend
+- [ ] Setup app window
+  - [ ] Build custom frame.
 - [ ] Build Screens
   - [ ] Create Basic homepage
   - [ ] Create student viewer
