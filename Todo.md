@@ -12,6 +12,10 @@
 ## Frontend
 
 - [ ] Connect Apis from backend
-- [ ] Create Basic homepage
-- [ ] Create student viewer
-- [ ] Create Add student screen
+- [ ] Build Screens
+  - [ ] Create Basic homepage
+  - [ ] Create student viewer
+    - [ ] Create add student screen
+  - [ ] Timetable screen
+  - [ ] Lesson Screen
+    - [ ] Displays all students in class in seating plan.
