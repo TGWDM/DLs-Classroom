@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/tgwdm/projects/docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj": {}
+    "/home/duraggman/ZZ/progs/Desktop/Docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj": {}
   },
   "projects": {
-    "/home/tgwdm/projects/docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj": {
+    "/home/duraggman/ZZ/progs/Desktop/Docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/tgwdm/projects/docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj",
+        "projectUniqueName": "/home/duraggman/ZZ/progs/Desktop/Docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj",
         "projectName": "dlClass.API",
-        "projectPath": "/home/tgwdm/projects/docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj",
-        "packagesPath": "/home/tgwdm/.nuget/packages/",
-        "outputPath": "/home/tgwdm/projects/docker/DLs-Classroom/backend/dlClass.API/obj/",
+        "projectPath": "/home/duraggman/ZZ/progs/Desktop/Docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj",
+        "packagesPath": "/home/duraggman/.nuget/packages/",
+        "outputPath": "/home/duraggman/ZZ/progs/Desktop/Docker/DLs-Classroom/backend/dlClass.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/tgwdm/.nuget/NuGet/NuGet.Config"
+          "/home/duraggman/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"

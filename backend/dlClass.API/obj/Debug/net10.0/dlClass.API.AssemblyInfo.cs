@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dlClass.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12427289e48aa5e875ac10cdc568d6b2735e982c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a24e9e7f6aac8c10d73a0c8a1bfd9701b82f336")]
 [assembly: System.Reflection.AssemblyProductAttribute("dlClass.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dlClass.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
