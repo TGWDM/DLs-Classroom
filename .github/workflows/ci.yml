@@ -89,7 +89,7 @@ jobs:
           # Note: You'll need to add a build:electron script later
 
         - name: Upload Electron build artifacts
-          uses: actions/upload-artifact@v4
+          uses: actions/upload-artifact@v7
           with:
             name: electron-build
             path: ./frontend/dist/
