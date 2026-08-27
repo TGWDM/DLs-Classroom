@@ -1,0 +1,38 @@
+version: 2
+updates:
+  # Backend .NET dependencies
+  - package-ecosystem: "nuget"
+    directory: "/backend/dlClass.API"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      aspnetcore:
+        patterns:
+          - "Microsoft.*"
+          - "System.*"
+      npgsql:
+        patterns:
+          - "Npgsql.*"
+  # Frontend npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      vite:
+       patterns:
+         - "vite"
+         - "@vitejs/*"
+      react:
+       patterns:
+        - "react"
+        - "react-dom"
+        - "@types/react"
+        - "@types/react-dom"
+  # GitHub Actions dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
