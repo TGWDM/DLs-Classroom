@@ -4,6 +4,7 @@
         "healthcheck",
         "isready",
         "njsproj",
-        "ntvs"
+        "ntvs",
+        "Xunit"
     ]
 }

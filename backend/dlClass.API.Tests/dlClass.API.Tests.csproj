@@ -18,4 +18,8 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\dlClass.API\dlClass.API.csproj" />
+  </ItemGroup>
+
 </Project>
