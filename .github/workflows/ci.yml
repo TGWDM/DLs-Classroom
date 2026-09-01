@@ -19,7 +19,7 @@ jobs:
               uses: actions/checkout@v4 # downloads code so it can be accessed 
             
             - name: Setup .NET
-              uses: actions/setup-dotnet@v4 # install dotnet sdk for testing
+              uses: actions/setup-dotnet@v4 # installs dotnet sdk for testing
               with:
                 dotnet-version: '10.0.x'
             
@@ -30,7 +30,7 @@ jobs:
               run:  dotnet build ./backend/dlClass.API/dlClass.API.csproj --no-restore --configuration Release
               
             - name: Run tests
-              run: dotnet build ./backend/dlClass.API/dlClass.API.csproj --no-build --configuration Release  --verbosity normal
+              run: dotnet test ./backend/dlClass.API.Tests/dlClass.API.Tests.csproj --configuration Release  --verbosity normal
               continue-on-error: true # runs all test even if one errors
     
     # Frontend
