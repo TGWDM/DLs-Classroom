@@ -57,10 +57,9 @@ jobs:
           run: npm run build
           working-directory: ./frontend
 
-        - name: Run tests (if you have them)
-          run: npm test -- --passWithNoTests
+        - name: Run tests
+          run: npm run test:ci
           working-directory: ./frontend
-          continue-on-error: true
         
     # Electron Build
     electron:

@@ -7,14 +7,15 @@ Digital gamified classroom software. Used to gamify a classroom as way of keepin
 Database: Postgres
 Backend: C#
 Frontend:
-
 - Typescript
-- Photino + Vite
+- - Electron + Vite
+Testing:
+- vitest
+- XUnit 
 
 ## Development
 
 ### Frontend
 
-To have frontend hot reload run npm run dev from the frontend directory. Additionally, make sure to run npm install before making changes to App.tsx.
 
 ## Features
