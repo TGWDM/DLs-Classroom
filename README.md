@@ -2,22 +2,22 @@
 
 [![CI](https://github.com/TGWDM/DLs-Classroom/actions/workflows/ci.yml/badge.svg)](https://github.com/TGWDM/DLs-Classroom/actions/workflows/ci.yml)
 
-Digital gamified classroom software. Used to gamify a classroom as way of keeping student interested and focused. 
+## Overview 
+GUI classroom app where students have avatars and can be assigned points of XP. Teachers can select different views where the XP and ranks of the students are displayed on a bar chart (WIP).
 
 ## Teck Stack
-
 Database: Postgres
+
 Backend: C#
+
 Frontend:
 - Typescript
-- - Electron + Vite
+    - Electron + Vite
+
 Testing:
 - vitest
 - XUnit 
-
-## Development
-
-### Frontend
-
+- CI/CD
+- Dependabot
 
 ## Features
