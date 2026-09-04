@@ -2106,19 +2106,19 @@
     ]
   },
   "packageFolders": {
-    "/home/duraggman/.nuget/packages/": {}
+    "/home/tgwdm/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/duraggman/ZZ/progs/Desktop/Docker/DLs-Classroom/backend/dlClass.API.Tests/dlClass.API.Tests.csproj",
+      "projectUniqueName": "/home/tgwdm/projects/docker/DLs-Classroom/backend/dlClass.API.Tests/dlClass.API.Tests.csproj",
       "projectName": "dlClass.API.Tests",
-      "projectPath": "/home/duraggman/ZZ/progs/Desktop/Docker/DLs-Classroom/backend/dlClass.API.Tests/dlClass.API.Tests.csproj",
-      "packagesPath": "/home/duraggman/.nuget/packages/",
-      "outputPath": "/home/duraggman/ZZ/progs/Desktop/Docker/DLs-Classroom/backend/dlClass.API.Tests/obj/",
+      "projectPath": "/home/tgwdm/projects/docker/DLs-Classroom/backend/dlClass.API.Tests/dlClass.API.Tests.csproj",
+      "packagesPath": "/home/tgwdm/.nuget/packages/",
+      "outputPath": "/home/tgwdm/projects/docker/DLs-Classroom/backend/dlClass.API.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/duraggman/.nuget/NuGet/NuGet.Config"
+        "/home/tgwdm/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -2131,8 +2131,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/home/duraggman/ZZ/progs/Desktop/Docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj": {
-              "projectPath": "/home/duraggman/ZZ/progs/Desktop/Docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj"
+            "/home/tgwdm/projects/docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj": {
+              "projectPath": "/home/tgwdm/projects/docker/DLs-Classroom/backend/dlClass.API/dlClass.API.csproj"
             }
           }
         }
