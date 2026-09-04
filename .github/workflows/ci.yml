@@ -31,7 +31,6 @@ jobs:
               
             - name: Run tests
               run: dotnet test ./backend/dlClass.API.Tests/dlClass.API.Tests.csproj --configuration Release  --verbosity normal
-              continue-on-error: true # runs all test even if one errors
     
     # Frontend
     frontend:
