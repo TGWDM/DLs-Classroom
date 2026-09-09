@@ -1,2 +1,30 @@
-# Enviroment variables for the project
+# .NET
+**/bin/
+**/obj/
+*.user
+*.suo
+*.lock.json
+
+# Node.js
+node_modules/
+dist/
+*.log
+
+# Environment
 .env
+.env.local
+
+# IDE
+.vscode/
+.vs/
+*.swp
+.DS_Store
+
+# Build outputs
+*.exe
+*.dll
+*.pdb
+*.so
+*.dylib
+*.zip
+*.tar.gz
