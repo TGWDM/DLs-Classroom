@@ -21,3 +21,4 @@ Testing:
 - Dependabot
 
 ## Features
+Students can customize their own icons, to personalise themselves in the application. 
