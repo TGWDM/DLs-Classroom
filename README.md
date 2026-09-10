@@ -12,7 +12,8 @@ Backend: C#
 
 Frontend:
 - Typescript
-    - Electron + Vite
+- Vite
+- Electron (Desktop Wrapper)
 
 Testing:
 - vitest
