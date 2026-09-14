@@ -24,7 +24,7 @@ function Home() {
       </div>
       <div className={styles.footer}>
         <p >Created by: TGWDM</p>
-        <a href='https://github.com/TGWDM/DLs-Classroom' target='_blank' rel='noopener noreferrer'>
+        <a id='linkToGH' href='https://github.com/TGWDM/DLs-Classroom' target='_blank' rel='noopener noreferrer'>
           <img src={ghLogo} alt='github-logo' className={styles.ghLogo} ></img>
         </a>
       </div>
