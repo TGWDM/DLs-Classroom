@@ -14,9 +14,9 @@ function Home() {
     <div className={styles.root}>
       <h2>Welcome to DL's Classroom</h2>
       <div className={styles.content}>
-        <div className={styles.options}>
+        <div data-testid='optionsButtons' className={styles.options}>
           {buttons.map((b) => (
-            <div key={b.label} className={styles.optionButtons} style={{ backgroundColor: b.bg }}>
+            <div role="optionButton" key={b.label}  className={styles.optionButtons} style={{ backgroundColor: b.bg }}>
               {b.label}
             </div>
           ))}

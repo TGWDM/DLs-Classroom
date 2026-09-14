@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import Home from '../screens/Home';
 
 test('Check that title renders', () => {
@@ -17,8 +17,15 @@ test('Navigates to github when pressed', () => {
 
 test('Check that github asset renders', () => {
   render(<Home />);
-  const ghLogo = screen.getByAltText('github-logo');
   const ghLink = screen.getByRole('link', {name: /github-logo/});
   expect(ghLink).toHaveAttribute('href', 'https://github.com/TGWDM/DLs-Classroom');
-  expect(ghLogo).toHaveAttribute('target', '_blank');
+  expect(ghLink).toHaveAttribute('target', '_blank');
+});
+
+test('Check that all buttons render', () => {
+  render(<Home />);
+  const optionsDiv = screen.getByTestId('optionsButtons');
+  expect(optionsDiv).toBeInTheDocument();
+  const buttons = within(optionsDiv).getAllByRole('optionButton');
+  expect(buttons).toHaveLength(4);
 });
