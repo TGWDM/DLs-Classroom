@@ -1,6 +1,6 @@
 // import React from 'react'
 import styles from '../css/Home.module.css'
-import ghLogo from '../assets/Vector.svg'
+import ghLogo from '../assets/ghLogo.svg'
 
 function Home() {
   const buttons = [

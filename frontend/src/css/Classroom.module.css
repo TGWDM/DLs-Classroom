@@ -1,0 +1,116 @@
+.classroom {
+  	width: 100%;
+  	height: 1024px;
+  	position: relative;
+  	background-color: #252525;
+  	overflow: hidden;
+  	text-align: center;
+  	font-size: 40px;
+  	color: #fff;
+  	font-family: Inter;
+}
+.dlsClassroom {
+  	position: absolute;
+  	top: 26px;
+  	left: calc(50% - 143px);
+}
+.studentRow {
+  	position: absolute;
+  	top: 451px;
+  	left: 168px;
+  	display: flex;
+  	align-items: center;
+  	gap: 129px;
+}
+.studentComponent {
+  	width: 119px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	gap: 30px;
+}
+.studentIcon {
+  	align-self: stretch;
+  	height: 119px;
+  	position: relative;
+  	max-width: 100%;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.name {
+  	position: relative;
+}
+.studentRow2 {
+  	position: absolute;
+  	top: 198px;
+  	left: 168px;
+  	display: flex;
+  	align-items: center;
+  	gap: 129px;
+}
+.teacher {
+  	position: absolute;
+  	height: 18.65%;
+  	width: 8.26%;
+  	top: 72.07%;
+  	right: 11.18%;
+  	bottom: 9.28%;
+  	left: 80.56%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	font-size: 35px;
+}
+.teacherIconParent {
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	gap: 87px;
+  	max-width: 100%;
+  	flex-shrink: 0;
+}
+.jade11 {
+  	position: relative;
+  	flex-shrink: 0;
+}
+.teacherDeskIcon {
+  	position: absolute;
+  	top: 778px;
+  	left: 1113px;
+  	width: 216px;
+  	height: 216px;
+}
+.backArrowIcon {
+  	position: absolute;
+  	height: 8.2%;
+  	width: 5.83%;
+  	top: 3.13%;
+  	right: 89.72%;
+  	bottom: 88.67%;
+  	left: 4.44%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.beginSchoolDay {
+  	position: absolute;
+  	top: 16px;
+  	left: 1185px;
+  	border-radius: 28px;
+  	background-color: #008b18;
+  	width: 237px;
+  	height: 77px;
+  	overflow: hidden;
+  	font-size: 24px;
+}
+.addAStudentWrapper {
+  	position: absolute;
+  	top: calc(50% - 24.5px);
+  	left: calc(50% - 90.5px);
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 10px;
+}
+
