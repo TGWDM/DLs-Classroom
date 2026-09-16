@@ -1,10 +1,14 @@
 import './css/App.css'
 import Home from './screens/Home.tsx'
+import Classroom from './screens/Classroom.tsx'
+import {Routes, Route} from 'react-router'
+
 function App() {
   return (
-    <>
-      <Home />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/classroom" element={<Classroom />}/>
+    </Routes>
   )
 }
 
