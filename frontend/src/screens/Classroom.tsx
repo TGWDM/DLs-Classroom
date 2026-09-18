@@ -2,6 +2,7 @@ import styles from '../css/Classroom.module.css';
 import backArrow from '../assets/Back Arrow.svg';
 import stdDefIcon from '../assets/Student default Icon.svg';
 import teachDesk from '../assets/Teacher Desk.svg';
+import {Link} from 'react-router'
 
 function Classroom(){
   	return (
@@ -58,7 +59,9 @@ function Classroom(){
         				</div>
       			</div>
       			<img src={teachDesk} className={styles.teacherDeskIcon} alt="" />
-      			<img src ={backArrow} className={styles.backArrowIcon} alt="" />
+				<Link to='/'>
+					<img src ={backArrow} className={styles.backArrowIcon} alt="" />
+				</Link>
       			<div className={styles.beginSchoolDay}>
         				<div className={styles.addAStudentWrapper}>
           					<div className={styles.name}>Add a student</div>

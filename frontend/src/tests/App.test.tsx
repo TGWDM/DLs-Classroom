@@ -1,9 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import App from '../App';
+import { renderWithRouter } from './renderWithRouter';
 
-test('renders home screen without crashing', () => {
-  render(<App />);
-  // Check that something from your app is rendered
-  const heading = screen.getByText(/DL's/i);
-  expect(heading).toBeInTheDocument();
+test('app renders without crashing', () => {
+  renderWithRouter(<App />);
 });

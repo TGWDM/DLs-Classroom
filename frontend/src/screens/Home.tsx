@@ -18,7 +18,6 @@ function Home() {
         <div data-testid='optionsButtons' className={styles.options}>
           {buttons.map((b) => (
             <Link 
-            role="optionButton" 
             to={b.to}
             key={b.label}  
             className={styles.optionButtons} 

@@ -12,7 +12,7 @@
     justify-content: space-between;
     flex-direction: row;
     text-align: center;
-    padding-bottom: 20px;
+    padding: 0px;
     font-size: 18px;
 }
 .ghLogo{
@@ -29,7 +29,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 150px;
+    padding-top: 100px;
 }
 
 .options {
@@ -39,7 +39,6 @@ h2 {
     align-items: center;
     justify-items: center;
 }
-
 .optionButtons {
     width: 237px;
     height: 77px;
@@ -49,5 +48,6 @@ h2 {
     justify-content: center;
     font-size: 24px;
     cursor: pointer;
+    color: white;
 }
 
