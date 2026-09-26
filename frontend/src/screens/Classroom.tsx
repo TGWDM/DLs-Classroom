@@ -51,7 +51,7 @@ function Classroom() {
 					<img src={backArrow} className={styles.backArrowIcon} alt="" />
 				</Link>
 				<div className={styles.classroomTitle}>DL’s Classroom</div>
-				<Button label='Add a Student' bg="red" to='/' className={styles.addStudentBtn} />
+				<Button label='Add a Student' bg="red" to='#' className={styles.addStudentBtn} />
 			</div>
 
 			<div className='studentGrid'>
