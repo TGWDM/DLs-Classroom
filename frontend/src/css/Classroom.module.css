@@ -10,6 +10,7 @@
   	font-family: Inter;
 }
 .classroomHeader {
+	flex: 1;
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
 	align-items: center;
@@ -35,6 +36,8 @@
 	color: white;
 	grid-column: 3;
 	justify-self: end;
+	border-width: 3px;
+	border-color: black;
 }
 .studentRow {
   	top: 451px;

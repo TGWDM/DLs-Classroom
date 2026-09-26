@@ -11,4 +11,5 @@ public class Student
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     [Required]
     public DateTime DOB {get; set;}
+    public string IconUrl { get; set; } = "/icons/student-default.svg"; // path to icon
 }

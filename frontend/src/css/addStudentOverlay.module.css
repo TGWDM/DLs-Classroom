@@ -1,0 +1,95 @@
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding-bottom: 290px;
+}
+
+.AddAStudentOverlay {
+    width: 854px;
+    height: 559px;
+    justify-content: center;
+    align-items: center;
+    background-color: #454545;
+    border-radius: 65px;
+
+}
+
+.overlayHeader {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 20px;
+}
+
+.AddAStudent {
+    grid-column: 2;
+    text-align: center;
+}
+
+.closeIcon {
+    justify-self: end;
+    grid-column: 3;
+    padding-right: 25px;
+}
+
+.inputArea {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+
+}
+
+.inputFields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    grid-column: 3;
+    justify-self: end;
+    padding-right: 180px;
+}
+
+.inputField {
+    border-radius: 16px;
+    background-color: rgba(173, 173, 173, 0.78);
+    width: 174px;
+    height: 62px;
+    text-align: center;
+    border-width: 3.5px;
+    border-color: black;
+    font-size: 24px;
+    color: white;
+
+}
+
+.inputField::placeholder {
+    color: black;
+    opacity: 1;
+}
+
+.addStdIconWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1;
+}
+
+.stdIcon {
+    width: 125px;
+    height: 125px;
+}
+
+.saveWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 110px;
+}

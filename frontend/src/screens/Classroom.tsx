@@ -3,10 +3,11 @@ import backArrow from '../assets/Back Arrow.svg';
 import stdDefIcon from '../assets/Student default Icon.svg';
 import teachDesk from '../assets/Teacher Desk.svg';
 import { Link } from 'react-router'
-import Button from '../components/Button';
+import ActBtn from '../components/ActBtn';
 import { useEffect, useState } from 'react';
 import { studentService } from '../services/studentService';
 import type { Student } from '../types/Student';
+import AddAStudentOverlay from '../overlays/AddStudentOverlay';
 
 
 
@@ -14,6 +15,7 @@ function Classroom() {
 	const [students, setStudents] = useState<Student[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
+	const [showOverlay, setShowOverlay] = useState(false);
 
 	const displayStudents = async () => {
 		try {
@@ -51,12 +53,24 @@ function Classroom() {
 					<img src={backArrow} className={styles.backArrowIcon} alt="" />
 				</Link>
 				<div className={styles.classroomTitle}>DL’s Classroom</div>
-				<Button label='Add a Student' bg="red" to='#' className={styles.addStudentBtn} />
-			</div>
+				<ActBtn
+					label='Add a Student'
+					bg="#8B0000"
+					onClick={() => setShowOverlay(true)}
+					className={styles.addStudentBtn}
+					fontSize={20}
+				/>
 
-			<div className='studentGrid'>
-				{renderStudents()}
 			</div>
+			{showOverlay && (
+				<AddAStudentOverlay onClose={() => setShowOverlay(false)}/>
+			)}
+
+			{ !showOverlay &&(
+				<div className='studentGrid'>
+					{renderStudents()}
+				</div>
+			)}
 
 			<div className={styles.teacher}>
 				<div className={styles.teacherIconParent}>
