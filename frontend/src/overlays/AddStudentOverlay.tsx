@@ -2,12 +2,24 @@ import styles from '../css/addStudentOverlay.module.css';
 import StudentIcon from '../assets/Student default Icon.svg';
 import CloseIcon from '../assets/Close.svg'
 import ActBtn from '../components/ActBtn';
+import { useState } from 'react';
 
 interface AddAStudentOverlayProps {
 	onClose: () => void;
 }
 
+
 export default function addAStudentOverlay({ onClose }: AddAStudentOverlayProps) {
+	const [form, setForm] = useState({ firstName: '', lastName: '', dob: '' });
+
+	const canSave = form.firstName.trim() !== ''
+		&& form.lastName.trim() !== ''
+		&& form.dob.trim() !== '';
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setForm({ ...form, [e.target.name]: e.target.value });
+	};
+
 	return (
 		<div className={styles.backdrop} onClick={onClose}>
 			<div className={styles.AddAStudentOverlay} onClick={(e) => e.stopPropagation()}>
@@ -22,22 +34,26 @@ export default function addAStudentOverlay({ onClose }: AddAStudentOverlayProps)
 				</div>
 				<div className={styles.inputArea}>
 					<div className={styles.addStdIconWrapper}>
-						<div className={styles.name}>Add a Icon</div>
-						<img src={StudentIcon} className={styles.stdIcon} alt="" />
+						<div className={styles.stdWrapperInner}>
+							<div className={styles.name}>Add a Icon</div>
+							<img src={StudentIcon} className={styles.stdIcon} alt="" />
+						</div>
 					</div>
 					<div className={styles.inputFields}>
-						<input className={styles.inputField} placeholder='First Name'></input>
-						<input className={styles.inputField} placeholder='Last Name'></input>
-						<input className={styles.inputField} placeholder='dd/MM/yyyy'></input>
+						<input className={styles.inputField} placeholder='First Name' name='firstName' onChange={handleChange} ></input>
+						<input className={styles.inputField} placeholder='Last Name' name='lastName' onChange={handleChange}></input>
+						<input className={styles.inputField} placeholder='dd/MM/yyyy' name='dob' onChange={handleChange}></input>
 					</div>
 				</div>
 				<div className={styles.saveWrapper}>
 					<ActBtn
 						label='Save Student'
-						bg="#8B0000"
-						onClick={onClose}
+						onClick={() => {
+							console.log("saved")
+						}}
 						className={styles.saveStudent}
 						fontSize={20}
+						disabled={!canSave}
 					/>
 				</div>
 			</div >

@@ -55,7 +55,6 @@ function Classroom() {
 				<div className={styles.classroomTitle}>DL’s Classroom</div>
 				<ActBtn
 					label='Add a Student'
-					bg="#8B0000"
 					onClick={() => setShowOverlay(true)}
 					className={styles.addStudentBtn}
 					fontSize={20}

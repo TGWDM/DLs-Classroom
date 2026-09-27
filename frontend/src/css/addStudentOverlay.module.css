@@ -75,12 +75,23 @@
 }
 
 .addStdIconWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1;
+  /* no background here */
+}
+
+.stdWrapperInner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 16px;
 }
 
 .stdIcon {
@@ -92,4 +103,13 @@
     display: flex;
     justify-content: center;
     margin-top: 110px;
+}
+
+.saveStudent{
+    background-color: #8B0000;
+}
+
+.saveStudent:disabled{
+    background-color: black;
+    color: white;
 }
