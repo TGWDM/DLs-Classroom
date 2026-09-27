@@ -21,7 +21,7 @@ export default function addAStudentOverlay({ onClose }: AddAStudentOverlayProps)
 	};
 
 	return (
-		<div className={styles.backdrop} onClick={onClose}>
+		<div className={styles.backdrop} data-testid="rootAddStudentOverlay" onClick={onClose}>
 			<div className={styles.AddAStudentOverlay} onClick={(e) => e.stopPropagation()}>
 				<div className={styles.overlayHeader}>
 					<div className={styles.AddAStudent}>Add a student</div>

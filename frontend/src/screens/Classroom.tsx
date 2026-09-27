@@ -49,10 +49,10 @@ function Classroom() {
 	return (
 		<div className={styles.classroom}>
 			<div className={styles.classroomHeader}>
-				<Link to='/' className={styles.backArrowLink}>
+				<Link to='/' className={styles.backArrowLink} data-testid="backArrowLink">
 					<img src={backArrow} className={styles.backArrowIcon} alt="" />
 				</Link>
-				<div className={styles.classroomTitle}>DL’s Classroom</div>
+				<div className={styles.classroomTitle}>DL's Class</div>
 				<ActBtn
 					label='Add a Student'
 					onClick={() => setShowOverlay(true)}
@@ -62,7 +62,7 @@ function Classroom() {
 
 			</div>
 			{showOverlay && (
-				<AddAStudentOverlay onClose={() => setShowOverlay(false)} />
+				<AddAStudentOverlay  onClose={() => setShowOverlay(false)} />
 			)}
 
 			{!showOverlay && (
@@ -71,11 +71,11 @@ function Classroom() {
 				</div>
 			)}
 
-			<div className={styles.teacher}>
-				<div className={styles.teacherIconParent}>
-					<img src={stdDefIcon} className={styles.studentIcon} alt="" />
-					<img src={teachDesk} className={styles.teacherDeskIcon} alt="" />
-					<div className={styles.teacherName}>Teacher</div>
+			<div className={styles.teacherWrapper}>
+				<div className={styles.teacherIconWrapper} data-testid="teacherIconWrapper">
+					<img src={stdDefIcon} className={styles.teacherIcon} alt="teacherIcon" />
+					<img src={teachDesk} className={styles.teacherDeskIcon} alt="teacherDesk" />
+					<div className={styles.teacherName} data-testid="teacherName">Teacher</div>
 				</div>
 			</div>
 			
