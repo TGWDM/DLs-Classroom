@@ -18,7 +18,7 @@
     align-items: center;
     background-color: #454545;
     border-radius: 65px;
-    border:3px solid black;
+    border: 3px solid black;
 
 }
 
@@ -78,23 +78,23 @@
 }
 
 .addStdIconWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  grid-column: 1;
-  /* no background here */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1;
+    /* no background here */
 }
 
 .stdWrapperInner {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 16px;
 }
 
 .stdIcon {
@@ -108,11 +108,11 @@
     margin-top: 110px;
 }
 
-.saveStudent{
+.saveStudent {
     background-color: #8B0000;
 }
 
-.saveStudent:disabled{
+.saveStudent:disabled {
     background-color: black;
     color: white;
 }

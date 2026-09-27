@@ -11,10 +11,10 @@ function Standings() {
                     <img src={BackArrow} />
                 </Link>
             </div>
-                <div className={styles.graph}>
-                    <div className={styles.expTxt}>Children</div>
-                    <div className={styles.childrenTxt}>Exp</div>
-                </div>
+            <div className={styles.graph}>
+                <div className={styles.expTxt}>Children</div>
+                <div className={styles.childrenTxt}>Exp</div>
+            </div>
         </div>
     );
 };

@@ -62,7 +62,7 @@ function Classroom() {
 
 			</div>
 			{showOverlay && (
-				<AddAStudentOverlay  onClose={() => setShowOverlay(false)} />
+				<AddAStudentOverlay onClose={() => setShowOverlay(false)} />
 			)}
 
 			{!showOverlay && (
@@ -78,7 +78,7 @@ function Classroom() {
 					<div className={styles.teacherName} data-testid="teacherName">Teacher</div>
 				</div>
 			</div>
-			
+
 		</div>);
 };
 

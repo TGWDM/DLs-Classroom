@@ -34,8 +34,8 @@ export default function ActBtn({
                 justifyContent: 'center',
                 borderStyle: `${borderStyle}`
             }}
-            className={`${className ?? ''}` } 
-            disabled = {disabled}
+            className={`${className ?? ''}`}
+            disabled={disabled}
 
         >
             {label}

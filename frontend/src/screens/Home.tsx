@@ -24,7 +24,7 @@ function Home() {
               className={styles.optionButtons}
               bg={b.bg}
             >
-              
+
             </NavBtn>
           ))}
         </div>
