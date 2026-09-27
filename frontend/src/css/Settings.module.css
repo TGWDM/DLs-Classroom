@@ -1,0 +1,42 @@
+.settings {
+  background-color: var(--variable-collection-dark-BG);
+  min-height: 100vh;
+  min-width: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.settings .title {
+  color: #ffffff;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: calc(50.00% - 63px);
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 39px;
+}
+
+.settings .backArrow {
+  height: 46px;
+  left: 3.96% ;
+  position: absolute ;
+  top: 5.66%;
+  width: 46px;
+}
+
+.settings .fillerTxt {
+  color: #ffffff;
+  font-family: "Arial-Regular", Helvetica;
+  font-size: 48px;
+  font-weight: 400;
+  left: calc(50.00% - 325px);
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: calc(50.00% - 44px);
+  white-space: nowrap;
+}

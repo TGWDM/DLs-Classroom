@@ -62,10 +62,10 @@ function Classroom() {
 
 			</div>
 			{showOverlay && (
-				<AddAStudentOverlay onClose={() => setShowOverlay(false)}/>
+				<AddAStudentOverlay onClose={() => setShowOverlay(false)} />
 			)}
 
-			{ !showOverlay &&(
+			{!showOverlay && (
 				<div className='studentGrid'>
 					{renderStudents()}
 				</div>
@@ -74,16 +74,11 @@ function Classroom() {
 			<div className={styles.teacher}>
 				<div className={styles.teacherIconParent}>
 					<img src={stdDefIcon} className={styles.studentIcon} alt="" />
-					<div className={styles.jade11}>Teacher</div>
+					<img src={teachDesk} className={styles.teacherDeskIcon} alt="" />
+					<div className={styles.teacherName}>Teacher</div>
 				</div>
 			</div>
-			<img src={teachDesk} className={styles.teacherDeskIcon} alt="" />
-
-			<div className={styles.beginSchoolDay}>
-				<div className={styles.addAStudentWrapper}>
-					<div className={styles.name}>Add a student</div>
-				</div>
-			</div>
+			
 		</div>);
 };
 

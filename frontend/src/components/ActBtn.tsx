@@ -7,6 +7,7 @@ interface actBtnProps {
     className?: string;
     fontSize?: number;
     disabled?: boolean;
+    borderStyle?: string;
 }
 
 export default function ActBtn({
@@ -17,7 +18,8 @@ export default function ActBtn({
     radius = 16,
     fontSize = 24,
     className,
-    disabled = false
+    disabled = false,
+    borderStyle = 'solid'
 }: actBtnProps) {
     return (
         <button
@@ -29,7 +31,8 @@ export default function ActBtn({
                 borderRadius: `${radius}px`,
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                borderStyle: `${borderStyle}`
             }}
             className={`${className ?? ''}` } 
             disabled = {disabled}
