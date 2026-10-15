@@ -3,9 +3,9 @@ name: CI
 # Configures test run criteria
 on: 
     push:
-        branches : [ main ]
+        branches : [ java-backend]
     pull_request:
-        branches: [ main ]
+        branches: [ java-backend ]
 
 # Configure Test Jobs
 jobs:
