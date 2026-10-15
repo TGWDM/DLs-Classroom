@@ -3,5 +3,5 @@ export interface Student{
     fName: string;
     lName: string;
     dob: string; 
-    iconUrl: string;
+    iconUrl?: string;
 }

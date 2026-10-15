@@ -42,7 +42,7 @@ function Classroom() {
 		return students.map((s) => (
 			<div key={s.id}>{s.fName} {s.lName}</div>
 		));
-	}
+	} 
 
 
 
