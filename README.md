@@ -8,7 +8,10 @@ GUI classroom app where students have avatars and can be assigned points of XP. 
 ## Teck Stack
 Database: Postgres
 
-Backend: C#
+Backend: Java
+> **Backend migration:** Originally built with C# (ASP.NET Core), now rebuilt in 
+> Java (Spring Boot) as part of a deliberate move toward enterprise backend 
+> development. The C# implementation remains available on the `csharp-backend` branch.
 
 Frontend:
 - Typescript
