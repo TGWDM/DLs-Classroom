@@ -1,19 +1,11 @@
 version: 2
 updates:
-  # Backend .NET dependencies
-  - package-ecosystem: "nuget"
-    directory: "/backend/dlClass.API"
+  # Backend Java dependencies
+  - package-ecosystem: "gradle"
+    directory: "/backend-java"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 10
-    groups:
-      aspnetcore:
-        patterns:
-          - "Microsoft.*"
-          - "System.*"
-      npgsql:
-        patterns:
-          - "Npgsql.*"
+      
   # Frontend npm dependencies
   - package-ecosystem: "npm"
     directory: "/frontend"

@@ -14,15 +14,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          dotnet-version: '10.0.x'
+          distribution: 'temurin'
+          java-version: '25'
 
-      - name: Publish Backend
+      - name: Build JAR
         run: |
-          cd backend/dlClass.API
-          dotnet publish -c Release -o ./publish 
+          chmod +x backend/api/gradlew
+          cd backend/api
+          ./gradlew bootJar
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-builds
+          path: |
+            backend/api/build/libs/*.jar
+            frontend/dist
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

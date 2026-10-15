@@ -11,27 +11,25 @@ on:
 jobs:
     # Backend CI
     backend:
-        name: Backend .NET 10
+        name: Backend Java 25 + Springboot
         runs-on: ubuntu-latest
         
         steps:
             - name: Checkout code
               uses: actions/checkout@v4 # downloads code so it can be accessed 
             
-            - name: Setup .NET
-              uses: actions/setup-dotnet@v4 # installs dotnet sdk for testing
+            - name: Setup Java
+              uses: actions/setup-java@v4 # installs Java sdk for testing
               with:
-                dotnet-version: '10.0.x'
+                distribution: 'temurin'
+                java-version: '25'
             
-            - name: Restore dependencies
-              run: dotnet restore ./backend/dlClass.API/dlClass.API.csproj
+            - name: Grant execute permission for gradlew
+              run: chmod +x backend/api/gradlew
             
-            - name: Build
-              run:  dotnet build ./backend/dlClass.API/dlClass.API.csproj --no-restore --configuration Release
-              
-            - name: Run tests
-              run: dotnet test ./backend/dlClass.API.Tests/dlClass.API.Tests.csproj --configuration Release  --verbosity normal
-    
+            - name: Build & Test
+              run: ./gradlew build --no-daemon
+              working-directory: ./backend/api
     # Frontend
     frontend:
         name: Frontend (React + Vite)
