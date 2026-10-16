@@ -13,10 +13,9 @@ jobs:
     backend:
         name: Backend Java 25 + Springboot
         runs-on: ubuntu-latest
-        
         steps:
             - name: Checkout code
-              uses: actions/checkout@v4 # downloads code so it can be accessed 
+              uses: actions/checkout@v4 # downloads code so it can be accessed
             
             - name: Setup Java
               uses: actions/setup-java@v4 # installs Java sdk for testing
