@@ -18,9 +18,9 @@ public class Student {
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
-    @Column(name = "last_Name, nullable = false")
+    @Column(name = "last_Name", nullable = false)
     private String lastName;
-    @Column(nullable = false)
+    @Column(name = "date_of_birth", nullable = false)
     private LocalDate dob;
     @Column(name = "icon_url")
     private String iconUrl;

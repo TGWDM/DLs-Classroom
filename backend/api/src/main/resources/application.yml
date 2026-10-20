@@ -1,0 +1,15 @@
+server: # postgresSQL
+  port: 5212
+
+spring:
+  application:
+    name: api
+  datasource: # db vars
+    url: jdbc:postgresql://localhost:5432/dlsclassroom
+    username: your_db_user
+    password: your_db_password
+  jpa:
+    hibernate:
+      ddl-auto: validate #cchecks db schema
+  flyway:
+    enabled: true # checks for migrations and runs if new migration found
