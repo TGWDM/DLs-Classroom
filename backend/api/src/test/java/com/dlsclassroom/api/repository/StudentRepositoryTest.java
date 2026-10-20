@@ -1,15 +1,15 @@
 package com.dlsclassroom.api.repository;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.ActiveProfiles;
-import java.util.List;
 import com.dlsclassroom.api.model.Student;
 
 @DataJpaTest
@@ -22,12 +22,7 @@ class StudentRepositoryTest {
 
     @Test
     void savesAndGetsStudent() {
-        Student student = new Student();
-        student.setFirstName("John");
-        student.setLastName("Doe");
-        student.setDob(LocalDate.of(2000, 1, 1));
-        student.setIconUrl("/icons/default.svg");
-
+        Student student = createStudent("John", "Doe", 2000, 1, 1, "/icons/default.svg");
         Student saved = studentRepo.save(student);
 
         assertNotNull(saved.getId());
@@ -39,27 +34,32 @@ class StudentRepositoryTest {
 
     @Test
     void blockDuplicateStudents() {
-        Student s1 = new Student();
-        s1.setFirstName("Alice");
-        s1.setLastName("Smith");
-        s1.setDob(LocalDate.of(2001, 5, 10));
-
-        Student s2 = new Student();
-        s2.setFirstName("Bob");
-        s2.setLastName("Smith");
-        s2.setDob(LocalDate.of(2002, 8, 17));
-
-        Student s3 = new Student(); // dupliacte student
-        s3.setFirstName("Alice");
-        s3.setLastName("Brown");
-        s3.setDob(LocalDate.of(2001, 5, 10));
-
+        Student s1 = createStudent("Alice", "Smith", 2001, 5, 10);
+        Student s2 = createStudent("Bob", "Andy", 2002, 1, 10);
+        Student s3 = createStudent("Alice", "Smith", 2001, 5, 10); // dupliacte s1
         studentRepo.save(s1);
         studentRepo.save(s2);
-        studentRepo.save(s3);
+        // A data integrity error should be thrown blocking the duplicate from being
+        // made.
+        assertThrows(DataIntegrityViolationException.class, () -> {
+            studentRepo.save(s3);
+        });
+    }
 
-        List<Student> students = studentRepo.findAll();
-        // there should only be two students as the third should have been blocked.
-        assertEquals(2, students.size());
+    private Student createStudent(String fName, String lName, int yr, int mon, int day, String iconUrl) {
+        Student stud = new Student();
+        stud.setFirstName(fName);
+        stud.setLastName(lName);
+        stud.setDob(LocalDate.of(yr, mon, day));
+        stud.setIconUrl(iconUrl);
+        return stud;
+    }
+
+    private Student createStudent(String fName, String lName, int yr, int mon, int day) {
+        Student stud = new Student();
+        stud.setFirstName(fName);
+        stud.setLastName(lName);
+        stud.setDob(LocalDate.of(yr, mon, day));
+        return stud;
     }
 }

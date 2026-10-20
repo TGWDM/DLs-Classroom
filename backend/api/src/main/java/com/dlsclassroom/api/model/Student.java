@@ -8,9 +8,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity // Registers class as table
-@Table(name = "students")
+// adding a name allows for easy id if an error occurs.
+@Table(name = "students", uniqueConstraints = @UniqueConstraint(name = "unique_students", columnNames = {
+        "first_name",
+        "last_name",
+        "date_of_birth"
+}))
+
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +25,7 @@ public class Student {
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
-    @Column(name = "last_Name", nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
     @Column(name = "date_of_birth", nullable = false)
     private LocalDate dob;
