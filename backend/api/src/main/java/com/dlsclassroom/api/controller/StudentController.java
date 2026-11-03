@@ -1,15 +1,17 @@
 package com.dlsclassroom.api.controller;
 
 import com.dlsclassroom.api.service.DuplicateStudentException;
+import com.dlsclassroom.api.service.MissingStudentsException;
 import com.dlsclassroom.api.service.StudentService;
 import com.dlsclassroom.api.model.Student;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/student")
+@RequestMapping("/api/students")
 public class StudentController {
     private final StudentService studentService;
 
@@ -18,7 +20,7 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    // POSTs a student record
+    // Creates a student record
     @PostMapping
     public ResponseEntity<?> createStudent(@RequestBody Student student) {
         try {
@@ -28,4 +30,12 @@ public class StudentController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+    // Gets All student records
+    @GetMapping()
+    public ResponseEntity<?> getAll() {
+        List<Student> allStudents = studentService.getAll();
+        return ResponseEntity.status(HttpStatus.OK).body(allStudents);
+    }
+
 }

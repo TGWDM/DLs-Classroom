@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -44,12 +45,12 @@ class StudentServiceTest {
     void GetAllReturnsStudentsList() {
         Student student = new Student();
         student.setFirstName("Finns");
-        ArrayList<Student> students = new ArrayList<Student>();
+        List<Student> students = new ArrayList<Student>();
         students.add(student);
         // mock repo returns list of students
         when(studentRepo.findAll()).thenReturn(students);
 
-        ArrayList<Student> result = studentService.getAll();
+        List<Student> result = studentService.getAll();
         // Assert that the a list of students was returned
         assertNotNull(result);
         assertEquals("Finns", result.get(0).getFirstName());

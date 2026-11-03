@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ class StudentControllerTest {
 
         when(studentService.saveStudent(any(Student.class))).thenReturn(student);
 
-        mockMvc.perform(post("/api/student")
+        mockMvc.perform(post("/api/students")
                 .contentType("application/json")
                 .content(
                         "{\"firstName\":\"Finns\",\"lastName\":\"Smith\",\"dob\":\"2001-05-10\"}"))
@@ -45,7 +46,7 @@ class StudentControllerTest {
         when(studentService.saveStudent(any(Student.class)))
                 .thenThrow(new DuplicateStudentException("Duplicate"));
 
-        mockMvc.perform(post("/api/student")
+        mockMvc.perform(post("/api/students")
                 .contentType("application/json")
                 .content("{\"firstName\":\"Finns\",\"lastName\":\"Smith\",\"dob\":\"2001-05-10\"}"))
                 .andExpect(status().isBadRequest());
@@ -55,7 +56,7 @@ class StudentControllerTest {
     void Returns200OnGetAllStudents() throws Exception {
         Student student = new Student();
         student.setFirstName("Finns");
-        ArrayList<Student> students = new ArrayList<Student>();
+        List<Student> students = new ArrayList<Student>();
         students.add(student);
         when(studentService.getAll()).thenReturn(students);
 
