@@ -2,6 +2,7 @@ package com.dlsclassroom.api.service;
 
 import com.dlsclassroom.api.model.Student;
 import com.dlsclassroom.api.repository.StudentRepository;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class StudentService {
         try {
             return studentRepo.save(student);
         } catch (DataIntegrityViolationException e) {
-            throw new IllegalArgumentException("Duplicate student record");
+            throw new DuplicateStudentException("Duplicate student record");
         }
     }
 }

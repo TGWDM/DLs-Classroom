@@ -9,7 +9,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import com.dlsclassroom.api.model.Student;
 import com.dlsclassroom.api.repository.StudentRepository;
 
@@ -22,17 +21,17 @@ class StudentServiceTest {
     private StudentService studentService; // Mock the service using fake db connector
 
     @Test
-    void throwsErrorOnRejectDuplicates() {
+    void throwsDupExceptionOnRejectDuplicates() {
         Student dup = new Student();
-        dup.setFirstName("Finn");
+        dup.setFirstName("Finns");
 
         // mock repository throws a DB error when save is called
         when(studentRepo.save(any(Student.class)))
                 .thenThrow(new org.springframework.dao.DataIntegrityViolationException("Duplicate"));
 
         // Assert that the service catches the DB error and throws a
-        // IllegalArgumentException
-        assertThrows(IllegalArgumentException.class, () -> {
+        // DuplicateStudentException
+        assertThrows(DuplicateStudentException.class, () -> {
             studentService.saveStudent(dup);
         });
 
