@@ -4,6 +4,7 @@ import com.dlsclassroom.api.service.DuplicateStudentException;
 import com.dlsclassroom.api.service.StudentService;
 import com.dlsclassroom.api.model.Student;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +20,12 @@ public class StudentController {
 
     // POSTs a student record
     @PostMapping
-    public ResponseEntity<Void> createStudent(@RequestBody Student student) {
+    public ResponseEntity<?> createStudent(@RequestBody Student student) {
         try {
-            studentService.saveStudent(student);
-            return ResponseEntity.status(201).build();
+            Student postStudent = studentService.saveStudent(student);
+            return ResponseEntity.status(HttpStatus.CREATED).body(postStudent);
         } catch (DuplicateStudentException e) {
-            return ResponseEntity.status(400).build();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 }
