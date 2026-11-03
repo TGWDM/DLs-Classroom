@@ -5,6 +5,8 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -47,5 +49,20 @@ class StudentControllerTest {
                 .contentType("application/json")
                 .content("{\"firstName\":\"Finns\",\"lastName\":\"Smith\",\"dob\":\"2001-05-10\"}"))
                 .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void Returns200OnGetAllStudents() throws Exception {
+        Student student = new Student();
+        student.setFirstName("Finns");
+        ArrayList<Student> students = new ArrayList<Student>();
+        students.add(student);
+        when(studentService.getAll()).thenReturn(students);
+
+        mockMvc.perform(get("/api/students")
+                .contentType("application/json"))
+                .andExpectAll(
+                        status().isOk(),
+                        jsonPath("$[0].firstName").value("Finns"));
     }
 }

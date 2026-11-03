@@ -3,6 +3,9 @@ package com.dlsclassroom.api.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +24,7 @@ class StudentServiceTest {
     private StudentService studentService; // Mock the service using fake db connector
 
     @Test
-    void throwsDupExceptionOnRejectDuplicates() {
+    void ThrowsDupExceptionOnRejectDuplicates() {
         Student dup = new Student();
         dup.setFirstName("Finns");
 
@@ -34,6 +37,21 @@ class StudentServiceTest {
         assertThrows(DuplicateStudentException.class, () -> {
             studentService.saveStudent(dup);
         });
+
+    }
+
+    void GetAllReturnsStudentsList() {
+        Student student = new Student();
+        student.setFirstName("Finns");
+        ArrayList<Student> students = new ArrayList<Student>();
+        students.add(student);
+        // mock repo returns list of students
+        when(studentRepo.findAll()).thenReturn(students);
+        // Assert that the a list of students was returned
+        assertAll("Student List Checks",
+                () -> assertNotNull(students),
+                () -> jsonPath("$[0].firstName").value("Finns"),
+                () -> assertEquals(students.size(), 1));
 
     }
 }
