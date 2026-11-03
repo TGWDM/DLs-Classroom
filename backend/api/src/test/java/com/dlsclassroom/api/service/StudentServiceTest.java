@@ -40,6 +40,7 @@ class StudentServiceTest {
 
     }
 
+    @Test
     void GetAllReturnsStudentsList() {
         Student student = new Student();
         student.setFirstName("Finns");
@@ -47,11 +48,11 @@ class StudentServiceTest {
         students.add(student);
         // mock repo returns list of students
         when(studentRepo.findAll()).thenReturn(students);
-        // Assert that the a list of students was returned
-        assertAll("Student List Checks",
-                () -> assertNotNull(students),
-                () -> jsonPath("$[0].firstName").value("Finns"),
-                () -> assertEquals(students.size(), 1));
 
+        ArrayList<Student> result = studentService.getAll();
+        // Assert that the a list of students was returned
+        assertNotNull(result);
+        assertEquals("Finns", result.get(0).getFirstName());
+        assertEquals(1, result.size());
     }
 }
