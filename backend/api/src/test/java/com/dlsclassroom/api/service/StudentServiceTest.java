@@ -16,10 +16,10 @@ import com.dlsclassroom.api.repository.StudentRepository;
 @ExtendWith(MockitoExtension.class)
 class StudentServiceTest {
     @Mock
-    private StudentRepository studentRepo; // mock the DB
+    private StudentRepository studentRepo; // mock up fake DB connector
 
     @InjectMocks
-    private StudentService studentService;
+    private StudentService studentService; // Mock the service using fake db connector
 
     @Test
     void throwsErrorOnRejectDuplicates() {
