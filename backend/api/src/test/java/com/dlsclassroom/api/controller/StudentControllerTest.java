@@ -30,7 +30,7 @@ class StudentControllerTest {
 
         when(studentService.saveStudent(any(Student.class))).thenReturn(student);
 
-        mockMvc.perform(post("/api/students")
+        mockMvc.perform(post("/api/student")
                 .contentType("application/json")
                 .content(
                         "{\"firstName\":\"Finns\",\"lastName\":\"Smith\",\"dob\":\"2001-05-10\"}"))
@@ -43,7 +43,7 @@ class StudentControllerTest {
         when(studentService.saveStudent(any(Student.class)))
                 .thenThrow(new DuplicateStudentException("Duplicate"));
 
-        mockMvc.perform(post("/api/students")
+        mockMvc.perform(post("/api/student")
                 .contentType("application/json")
                 .content("{\"firstName\":\"Finns\",\"lastName\":\"Smith\",\"dob\":\"2001-05-10\"}"))
                 .andExpect(status().isBadRequest());
