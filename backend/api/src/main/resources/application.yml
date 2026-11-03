@@ -5,11 +5,12 @@ spring:
   application:
     name: api
   datasource: # db vars
-    url: jdbc:postgresql://localhost:5432/dlsclassroom
-    username: your_db_user
-    password: your_db_password
+    url: jdbc:postgresql://localhost:5432/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PW}
   jpa:
     hibernate:
-      ddl-auto: validate #cchecks db schema
+      ddl-auto: validate #checks db schema
   flyway:
     enabled: true # checks for migrations and runs if new migration found
+    baseline-on-migrate: true

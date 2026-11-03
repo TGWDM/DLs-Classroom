@@ -1,7 +1,6 @@
 package com.dlsclassroom.api.controller;
 
 import com.dlsclassroom.api.service.DuplicateStudentException;
-import com.dlsclassroom.api.service.MissingStudentsException;
 import com.dlsclassroom.api.service.StudentService;
 import com.dlsclassroom.api.model.Student;
 
