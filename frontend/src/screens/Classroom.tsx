@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { studentService } from '../services/studentService';
 import type { Student } from '../types/Student';
 import AddAStudentOverlay from '../overlays/AddStudentOverlay';
-
+import StdComp from '../components/StdComp';
 
 
 function Classroom() {
@@ -40,7 +40,7 @@ function Classroom() {
 		if (error) return <div>{error}</div>;
 		if (students.length === 0) return <div>No Student added to class yet</div>;
 		return students.map((s) => (
-			<div key={s.id}>{s.fName} {s.lName}</div>
+			<StdComp fName={s.firstName} lName={s.lastName}></StdComp>
 		));
 	} 
 

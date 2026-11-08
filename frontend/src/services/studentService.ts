@@ -6,7 +6,7 @@ const API_BASE = import.meta.env.VITE_API_URL ?? 'http://127.0.0.1:5212/api';
 
 export const studentService = {
     getAll: async (): Promise<Student[]> => {
-        const res = await fetch(`${API_BASE}/Students`);
+        const res = await fetch(`${API_BASE}/students`);
         
         if (res.status === 204) return []; // No students retunr empty array
         // if res doesn't return ok response throw error

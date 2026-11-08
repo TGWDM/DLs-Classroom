@@ -1,7 +1,7 @@
 export interface Student{
     id: number;
-    fName: string;
-    lName: string;
+    firstName: string;
+    lastName: string;
     dob: string; 
     iconUrl?: string;
 }

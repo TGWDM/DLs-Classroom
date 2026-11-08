@@ -1,4 +1,6 @@
-interface actBtnProps {
+import type React from "react";
+
+interface actBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     label: string;
     onClick: () => void;
     height?: number;
@@ -19,20 +21,24 @@ export default function ActBtn({
     fontSize = 24,
     className,
     disabled = false,
-    borderStyle = 'solid'
+    borderStyle = 'solid',
+    style,
+    ...rest
 }: actBtnProps) {
     return (
         <button
             onClick={onClick}
+            {...rest}
             style={{
                 height: `${height}px`,
                 width: `${width}px`,
                 fontSize: `${fontSize}px`,
                 borderRadius: `${radius}px`,
                 display: 'flex',
-                alignItems: 'center',
+                alignItems: 'stretch',
                 justifyContent: 'center',
-                borderStyle: `${borderStyle}`
+                borderStyle: `${borderStyle}`,
+                ...style
             }}
             className={`${className ?? ''}`}
             disabled={disabled}

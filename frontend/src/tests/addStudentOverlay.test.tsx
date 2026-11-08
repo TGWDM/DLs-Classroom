@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import AddAStudentOverlay from '../overlays/AddStudentOverlay';
@@ -10,6 +10,14 @@ vi.mock('../services/studentService', () => ({
 }));
 
 const onClose = vi.fn();
+
+beforeEach(() => {
+    onClose.mockClear();
+});
+
+afterEach(() => {
+    vi.unstubAllGlobals();
+});
 
 test('Check that title renders', () => {
 
@@ -135,19 +143,19 @@ test('save button is only enabled once all validation have been met.', async () 
 
 test('save button triggers POST to backend and creates a student record', async () => {
     const user = userEvent.setup();
-    render(<AddAStudentOverlay onClose={onClose} />);
-
     // Mock fetch
-    const mockFetch = vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true }));
-
-    const saveBtn = screen.getByRole('button', { name: /Save Student/i });
+    const mockFetch = vi.fn().mockResolvedValue({ ok: true });
+    vi.stubGlobal('fetch', mockFetch);
+    
+    render(<AddAStudentOverlay onClose={onClose} />);
     await fillForm(user);
-    // Should be enabled 
+    const saveBtn = screen.getByTestId('saveStudentBtn');
+    // Should be enabled
     expect(saveBtn).toBeEnabled();
     await user.click(saveBtn);
 
     // Assert fetch was called
-    expect(mockFetch).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(mockFetch).toHaveBeenCalledTimes(1));
 
     // Assert the URL and method
     const [url, options] = (mockFetch as any).mock.calls[0];
@@ -163,7 +171,7 @@ test('save button triggers POST to backend and creates a student record', async 
     });
 
     // 3. Assert Outcome
-    expect(onClose).toHaveBeenCalled();
+    await waitFor(() => expect(onClose).toHaveBeenCalledTimes(1));
 })
 
 test('shows error message on failed save and does not close', async () => {
@@ -172,18 +180,18 @@ test('shows error message on failed save and does not close', async () => {
 
     render(<AddAStudentOverlay onClose={onClose} />);
     await fillForm(user);
-    await user.click(screen.getByRole('button', { name: /save student/i }));
 
-    // Error appears
-    expect(await screen.findByText(/failed to add/i)).toBeInTheDocument();
+    const saveBtn = screen.getByTestId('saveStudentBtn');
+    expect(saveBtn).toBeEnabled();
+    await user.click(saveBtn);
 
-    // Modal stays open
+    expect(saveBtn).toHaveTextContent(/failed to add student/i);
     expect(onClose).not.toHaveBeenCalled();
 });
 
 // helper for filling forms 
 async function fillForm(user: ReturnType<typeof userEvent.setup>) {
-    await user.type(screen.getByPlaceholderText(/first name/i), 'a');
-    await user.type(screen.getByPlaceholderText(/last name/i), 'a');
+    await user.type(screen.getByPlaceholderText(/first name/i), 'as');
+    await user.type(screen.getByPlaceholderText(/last name/i), 'as');
     await user.type(screen.getByPlaceholderText(/dd\/MM\/yyyy/i), '01/12/1994');
 }

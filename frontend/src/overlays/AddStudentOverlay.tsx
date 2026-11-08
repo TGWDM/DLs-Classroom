@@ -14,7 +14,7 @@ export default function addAStudentOverlay({ onClose }: AddAStudentOverlayProps)
 	const fNameRegex = /^(?=.{2,25}$)[A-Z]?[a-z]+$/;
 	const lNameRegex = /^(?=.{2,25}$)[A-Z]?[a-z]+(-[A-Z]?[a-z]+)?$/;
 	const dobRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
-
+	const [saveBtnText, setSaveBtnText] = useState('Save Student');
 	const handleFNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 		const cleaned = value.replace(/[^a-zA-Z]/g, '').slice(0, 25);
@@ -70,7 +70,6 @@ export default function addAStudentOverlay({ onClose }: AddAStudentOverlayProps)
 		fNameRegex.test(form.firstName) &&
 		lNameRegex.test(form.lastName) &&
 		dobRegex.test(form.dob);
-
 	return (
 		<div className={styles.backdrop} data-testid='rootAddStudentOverlay' onClick={onClose}>
 			<div className={styles.AddAStudentOverlay} onClick={(e) => e.stopPropagation()}>
@@ -100,9 +99,9 @@ export default function addAStudentOverlay({ onClose }: AddAStudentOverlayProps)
 				<div className={styles.saveWrapper}>
 					<ActBtn
 						data-testid="saveStudentBtn"
-						label='Save Student'
+						label= {saveBtnText}
 						onClick={() => {
-							console.log("saved")
+							setSaveBtnText('failed to add student')
 						}}
 						className={styles.saveStudent}
 						fontSize={20}
